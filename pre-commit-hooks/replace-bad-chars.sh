@@ -1,9 +1,5 @@
 #!/bin/bash
 # pre-commit hook: sanitize LaTeX and BibTeX files
-# - Replace en dash (–) → double hyphen (--)
-# - Replace non-breaking space ( ) → space ( )
-# - Replace minus sign (−) → hyphen (-)
-# - Replace curly apostrophe (’) → straight apostrophe (')
 # Fails (exit 1) if any replacements were applied.
 
 set -euo pipefail
@@ -16,10 +12,11 @@ mapfile -t files < <(git diff --cached --name-only --diff-filter=ACM | grep -E '
 
 # Define replacements: pattern → replacement
 declare -A replacements=(
-  ["–"]="--"
-  [" "]=" "   # non-breaking space
-  ["−"]="-"
-  ["’"]="'"
+  ["\u2013"]="--"  # en dash (–)
+  ["\u00A0"]=" "   # non-breaking space ( )
+  ["\u2212"]="-"   # minus sign (−)
+  ["\u2018"]="\`"  # curly left apostrophe (‘)
+  ["\u2019"]="'"   # curly right apostrophe (’)
 )
 
 # Detect BSD vs GNU sed

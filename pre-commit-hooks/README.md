@@ -1,7 +1,7 @@
 # latex-precommit-hooks
 
 A pre-commit hook to sanitize `.tex` and `.bib` files by replacing non-ASCII characters
-(e.g., en dash, non-breaking space, curly apostrophes, etc.) with plain ASCII equivalents.
+(e.g. en dash, non-breaking space, curly apostrophes, etc.) with plain ASCII equivalents.
 
 ### Usage
 
