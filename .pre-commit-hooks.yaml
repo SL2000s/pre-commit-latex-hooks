@@ -1,0 +1,8 @@
+- id: replace-bad-chars
+  name: bad characters in .tex/.bib
+  entry: pre-commit-hooks/replace-bad-chars.sh
+  language: script
+  files: \.(tex|bib)$
+  description: |
+    Replaces non-ASCII punctuation (e.g. en dash, non-breaking space, curly apostrophe etc.)
+    with their ASCII equivalents in LaTeX and BibTeX files.
