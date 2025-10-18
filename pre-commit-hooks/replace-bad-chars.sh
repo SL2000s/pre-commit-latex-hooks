@@ -12,11 +12,11 @@ mapfile -t files < <(git diff --cached --name-only --diff-filter=ACM | grep -E '
 
 # Define replacements: pattern → replacement
 declare -A replacements=(
-  ["\u2013"]="--"  # en dash (–)
-  ["\u00A0"]=" "   # non-breaking space ( )
-  ["\u2212"]="-"   # minus sign (−)
-  ["\u2018"]="\`"  # curly left apostrophe (‘)
-  ["\u2019"]="'"   # curly right apostrophe (’)
+  [$'\u2013']="--"  # en dash (–)
+  [$'\u00A0']=" "   # non-breaking space ( )
+  [$'\u2212']="-"   # minus sign (−)
+  [$'\u2018']="\`"  # curly left apostrophe (‘)
+  [$'\u2019']="'"   # curly right apostrophe (’)
 )
 
 # Detect BSD vs GNU sed
